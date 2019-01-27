@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
-import Layout from '../components/Layout'
 
 const styles = theme => ({
   root: {
@@ -17,11 +16,11 @@ const styles = theme => ({
 function About(props) {
 
   return (
-    <Layout>
+    <Fragment>
       <Typography variant="h4" gutterBottom>
         A propos
       </Typography>
-    </Layout>
+    </Fragment>
   );
 }
 

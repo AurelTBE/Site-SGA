@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 // Dependencies
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 // Components
-import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 
 
@@ -31,7 +30,7 @@ class Index extends React.Component {
   render() {
 
     return (
-      <Layout>
+      <Fragment>
         <Typography variant="h4" gutterBottom>
           Mon blog
         </Typography>
@@ -41,7 +40,7 @@ class Index extends React.Component {
             <PostLink id="deploy-nextjs" title="Deploy apps with Zeit"/>
         </ul>
         <PostList />
-      </Layout>
+      </Fragment>
     );
   }
 }
