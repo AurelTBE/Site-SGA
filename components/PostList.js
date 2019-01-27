@@ -36,20 +36,20 @@ const PostLink = (props) => (
     </div>
   )
 
-  const styles = theme => ({
+const styles = theme => ({
     root: {
       width: '100%',
       maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
     },
-  });
+});
   
-  function ListItemLink(props) {
+function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
-  }
+}
   
 
-export default function PostList () {
+function PostList () {
   return (
     <Query query={postsQuery}>
       {({ loading, error, data: { posts }}) => {
@@ -58,14 +58,19 @@ export default function PostList () {
 
         return (
           <section>
-            <ul>
+            <List component="nav">
               {posts.map((post) => (
                 <PostLink key={post._id} id={post.alias} title={post.titre} contenu={post.contenu} />
               ))}
-            </ul>
+            </List>
           </section>
         )
       }}
     </Query>
   )
 }
+
+PostList.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+export default withStyles(styles)(PostList);
