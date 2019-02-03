@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'next/router'
 import PostQuery from '../queries/readPost'
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
+
 
 const styles = theme => ({
   root: {
@@ -32,7 +34,9 @@ const Content = withRouter((props) => (
 class Page extends PureComponent {
   render() {
     return (
-      <Content />
+      <Grid item xs={12}>
+        <Content />
+      </Grid>
       )
   }
 }

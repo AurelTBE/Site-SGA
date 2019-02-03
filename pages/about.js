@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Link from 'next/link';
 
 const styles = theme => ({
@@ -16,11 +17,11 @@ const styles = theme => ({
 function About(props) {
 
   return (
-    <Fragment>
+    <Grid item xs={12}>
       <Typography variant="h4" gutterBottom>
         A propos
       </Typography>
-    </Fragment>
+    </Grid>
   );
 }
 

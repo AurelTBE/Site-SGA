@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 
 const PostLink = (props) => (
     <div>
@@ -43,13 +44,13 @@ function PostList (props) {
             if (loading) return <div>Loading</div>
 
             return (
-                <div className={classes.root}>
+                <Grid item xs={12}>
                     <List component="nav">
                     {posts.map((post) => (
                         <PostLink key={post._id} id={post._id} alias={post.alias} titre={post.titre} />
                     ))}
                     </List>
-                </div>
+                </Grid>
             )
         }}
         </Query>
