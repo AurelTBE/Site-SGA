@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import readPostsQuery from '../queries/readPosts'
 import ErrorMessage from './ErrorMessage'
 import Link from "next/link";
 
@@ -11,23 +11,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-export const postsQuery = gql`
-    {
-        posts {
-            _id
-            alias
-            titre
-            contenu
-            datePublication
-        }
-    }
-`
-
 const PostLink = (props) => (
     <div>
-      <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
+      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
             <ListItemLink>
-                <ListItemText primary={props.title} />
+                <ListItemText primary={props.titre} />
             </ListItemLink>
       </Link>
     </div>
@@ -49,7 +37,7 @@ function ListItemLink(props) {
 function PostList (props) {
     const { classes } = props;
     return (
-        <Query query={postsQuery}>
+        <Query query={readPostsQuery}>
         {({ loading, error, data: { posts }}) => {
             if (error) return <ErrorMessage message='Error loading posts.' />
             if (loading) return <div>Loading</div>
@@ -58,7 +46,7 @@ function PostList (props) {
                 <div className={classes.root}>
                     <List component="nav">
                     {posts.map((post) => (
-                        <PostLink key={post._id} id={post.alias} title={post.titre} contenu={post.contenu} />
+                        <PostLink key={post._id} id={post._id} alias={post.alias} titre={post.titre} />
                     ))}
                     </List>
                 </div>
