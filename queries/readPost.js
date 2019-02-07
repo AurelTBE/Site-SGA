@@ -9,6 +9,9 @@ query ReadPost($id: ID!){
             alias
             titre
             contenu
+            image{
+              url
+            }
         }
     }
 `

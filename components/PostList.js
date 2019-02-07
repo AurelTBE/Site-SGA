@@ -11,6 +11,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const PostLink = (props) => (
     <div>
@@ -45,6 +46,9 @@ function PostList (props) {
 
             return (
                 <Grid item xs={12}>
+                    <Typography variant="h4" gutterBottom>
+                      Mon blog
+                    </Typography>
                     <List component="nav">
                     {posts.map((post) => (
                         <PostLink key={post._id} id={post._id} alias={post.alias} titre={post.titre} />

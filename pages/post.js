@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
+const boLink = "http://localhost:1337"
 
 const styles = theme => ({
   root: {
@@ -24,6 +25,7 @@ const Content = withRouter((props) => (
           <Fragment>
             <Typography variant="h4" gutterBottom>{post.titre}</Typography>
             <div>{post.contenu}</div>
+            <img src={boLink + post.image.url} alt=""/>
           </Fragment>
         )
       }

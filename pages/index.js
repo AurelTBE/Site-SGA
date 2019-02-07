@@ -2,8 +2,8 @@
 // Dependencies
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import FullWidthTabs from '../components/Tabs'
 
 // Components
 import PostList from '../components/PostList'
@@ -21,10 +21,7 @@ class Index extends React.Component {
 
     return (
       <Fragment>
-        <Typography variant="h4" gutterBottom>
-          Mon blog
-        </Typography>
-        <PostList />
+        <FullWidthTabs />
       </Fragment>
     );
   }

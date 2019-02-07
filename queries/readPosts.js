@@ -7,7 +7,7 @@ export default gql`
             alias
             titre
             contenu
-            datePublication
+            datepublication
         }
     }
 `
