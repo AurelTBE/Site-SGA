@@ -14,6 +14,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import Link from 'next/link'
 
 const styles = {
@@ -38,6 +39,7 @@ const styles = {
 class Header extends React.Component {
   state = {
     left: false,
+    auth: false,
   };
 
   toggleDrawer = (side, open) => () => {
@@ -78,13 +80,14 @@ class Header extends React.Component {
               <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer('left', true)}>
                   <MenuIcon />
               </IconButton>
-              <Link href="/">
-                <Button color="inherit">Home</Button>
+              <Link href="/" >
+                <Button color="inherit">SGA</Button>
               </Link>
-              <Link href="/about">
-                <Button color="inherit">About</Button>
-              </Link>
-              <Button color="inherit">Login</Button>
+              <IconButton
+                  color="inherit"
+                >
+                  <AccountCircle />
+              </IconButton>
           </Toolbar>
         </AppBar>
         <SwipeableDrawer

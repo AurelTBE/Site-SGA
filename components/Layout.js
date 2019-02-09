@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 // Elements
-import Header from './HeaderDrawer'
 import HeaderDrawer from './HeaderDrawer';
 
 const styles = theme => ({
