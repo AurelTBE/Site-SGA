@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 // Elements
-import Header from './Header'
+import Header from './HeaderDrawer'
+import HeaderDrawer from './HeaderDrawer';
 
 const styles = theme => ({
   root: {
@@ -19,7 +20,7 @@ function Layout(props) {
 
   return (
     <Fragment>
-      <Header />
+      <HeaderDrawer />
       <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
