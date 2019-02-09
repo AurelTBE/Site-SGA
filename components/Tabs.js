@@ -56,9 +56,9 @@ class FullWidthTabs extends React.Component {
             variant="fullWidth"
             centered
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
+            <Tab label="Actualités" />
+            <Tab label="Résultats" />
+            <Tab label="Agenda" />
           </Tabs>
         </AppBar>
         <SwipeableViews
