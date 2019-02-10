@@ -38,11 +38,7 @@ function Layout(props) {
     <MuiThemeProvider theme = { theme }>
       <HeaderDrawer />
       <div className={classes.root}>
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
-            {props.children}
-          </Grid>
-        </Grid>
+        {props.children}
       </div>
     </MuiThemeProvider>
   )
