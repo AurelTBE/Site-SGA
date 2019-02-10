@@ -33,8 +33,9 @@ const styles = {
   list: {
     width: 250,
   },
-  fullList: {
-    width: 'auto',
+  logo: {
+    width: '50%',
+    padding: '10px'
   },
 };
 
@@ -55,6 +56,14 @@ class Header extends React.Component {
 
     const sideList = (
       <div className={classes.list}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <img src="/static/logo-sga.svg" alt="Saint Georges d'Argenteuil" className={classes.logo} />
+        </Grid>
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
@@ -89,7 +98,7 @@ class Header extends React.Component {
                   <MenuIcon />
               </IconButton>
               <Link href="/" >
-                <Button color="inherit" ><Typography variant="h6" color="inherit" className={classes.grow}>SGA</Typography></Button>
+                <Button color="inherit" ><Typography variant="h6" color="inherit" className={classes.grow}>SGA Gym Féminine</Typography></Button>
               </Link>
               <IconButton color="inherit">
                 <AccountCircle />

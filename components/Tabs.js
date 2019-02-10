@@ -59,6 +59,7 @@ class FullWidthTabs extends React.Component {
             <Tab label="Actualités" />
             <Tab label="Résultats" />
             <Tab label="Agenda" />
+            <Tab label="Médiathèque" />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -71,6 +72,7 @@ class FullWidthTabs extends React.Component {
           </TabContainer>
           <TabContainer dir={theme.direction}>Item Two</TabContainer>
           <TabContainer dir={theme.direction}>Item Three</TabContainer>
+          <TabContainer dir={theme.direction}>Item Four</TabContainer>
         </SwipeableViews>
       </div>
     );
