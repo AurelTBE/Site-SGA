@@ -5,7 +5,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
+import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -77,17 +79,22 @@ class Header extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="center"
+            >
               <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer('left', true)}>
                   <MenuIcon />
               </IconButton>
               <Link href="/" >
-                <Button color="inherit">SGA</Button>
+                <Button color="inherit" ><Typography variant="h6" color="inherit" className={classes.grow}>SGA</Typography></Button>
               </Link>
-              <IconButton
-                  color="inherit"
-                >
-                  <AccountCircle />
+              <IconButton color="inherit">
+                <AccountCircle />
               </IconButton>
+            </Grid>
           </Toolbar>
         </AppBar>
         <SwipeableDrawer
