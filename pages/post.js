@@ -4,6 +4,7 @@ import {withRouter} from 'next/router'
 import PostQuery from '../queries/readPost'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 
 const boLink = "http://localhost:1337"
@@ -12,6 +13,11 @@ const styles = theme => ({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
 });
 
@@ -23,9 +29,13 @@ const Content = withRouter((props) => (
       if (loading) return <div>Loading</div>
         return (
           <Fragment>
-            <Typography variant="h4" gutterBottom>{post.titre}</Typography>
-            <div>{post.contenu}</div>
-            <img src={boLink + post.image.url} alt=""/>
+              <Grid item xs={12}>
+                <Paper className={props.classes.paper}>
+                  <Typography variant="h4" gutterBottom>{post.titre}</Typography>
+                  <div>{post.contenu}</div>
+                  <img src={boLink + post.image.url} alt=""/>
+                </Paper>
+            </Grid>
           </Fragment>
         )
       }
@@ -33,15 +43,14 @@ const Content = withRouter((props) => (
   </PostQuery>
 ))
 
-class Page extends PureComponent {
-  render() {
-    return (
-      <Grid item xs={12}>
-        <Content />
-      </Grid>
-      )
-  }
+function Page(props) {
+  const { classes } = props;
+    
+  return (
+      <Content classes={classes}/>
+    )
 }
+
 
 Page.propTypes = {
   classes: PropTypes.object.isRequired,
