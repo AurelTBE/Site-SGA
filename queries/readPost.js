@@ -5,13 +5,9 @@ import {graphql} from 'react-apollo'
 const QUERY = gql`
 query ReadPost($id: ID!){
         post(id: $id){
-            _id
-            alias
-            titre
-            contenu
-            image{
-              url
-            }
+          title
+          slug
+          content
         }
     }
 `

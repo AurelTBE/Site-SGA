@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 const PostLink = (props) => (
     <div>
-      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
+      <Link as={`/p/${props.slug}`} href={`/post?id=${props.id}`}>
             <ListItemLink>
                 <ListItemText primary={props.titre} />
             </ListItemLink>
@@ -37,28 +37,27 @@ function ListItemLink(props) {
   
 
 function PostList (props) {
-    const { classes } = props;
-    return (
-        <Query query={readPostsQuery}>
-        {({ loading, error, data: { posts }}) => {
-            if (error) return <ErrorMessage message='Error loading posts.' />
-            if (loading) return <div>Loading</div>
+  return (
+      <Query query={readPostsQuery}>
+      {({ loading, error, data: { posts }}) => {
+          if (error) return <ErrorMessage message='Error loading posts.' />
+          if (loading) return <div>Loading</div>
 
-            return (
-                <Grid item xs={12}>
-                    <Typography variant="h4" gutterBottom>
-                      Mon blog
-                    </Typography>
-                    <List component="nav">
-                    {posts.map((post) => (
-                        <PostLink key={post._id} id={post._id} alias={post.alias} titre={post.titre} />
-                    ))}
-                    </List>
-                </Grid>
-            )
-        }}
-        </Query>
-    )
+          return (
+              <Grid item xs={12}>
+                  <Typography variant="h4" gutterBottom>
+                    Mon blog
+                  </Typography>
+                  <List component="nav">
+                  {posts.nodes.map((post) => (
+                      <PostLink key={post.id} id={post.id} slug={post.slug} titre={post.title} />
+                  ))}
+                  </List>
+              </Grid>
+          )
+      }}
+      </Query>
+  )
 }
 
 PostList.propTypes = {

@@ -31,9 +31,8 @@ const Content = withRouter((props) => (
           <Fragment>
               <Grid item xs={12}>
                 <Paper className={props.classes.paper}>
-                  <Typography component="h2" variant="h2" gutterBottom>{post.titre}</Typography>
-                  <Typography variant="body1" gutterBottom>{post.contenu}</Typography>
-                  <img src={boLink + post.image.url} alt=""/>
+                  <Typography component="h2" variant="h2" gutterBottom>{post.title}</Typography>
+                  <Typography variant="body1" gutterBottom>{post.content}</Typography>
                 </Paper>
             </Grid>
           </Fragment>
