@@ -21,7 +21,6 @@ const styles = theme => ({
   },
 });
 
-
 const Content = withRouter((props) => (
   <PostQuery id={props.router.query.id}>
     {({ loading, error, post }) => {
@@ -31,7 +30,7 @@ const Content = withRouter((props) => (
           <Fragment>
               <Grid item xs={12}>
                 <Paper className={props.classes.paper}>
-                  <Typography component="h2" variant="h2" gutterBottom>{post.title}</Typography>
+                  <Typography component="h2" variant="h2" gutterBottom dangerouslySetInnerHTML={{ __html: post.title}} />
                   <Typography variant="body1" gutterBottom>
                     <article
                     className="entry-content"
