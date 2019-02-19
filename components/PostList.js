@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 const PostLink = (props) => (
     <div>
-      <Link as={`/p/${props.slug}`} href={`/post?id=${props.id}`}>
+      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
             <ListItemLink>
                 <ListItemText primary={props.titre} />
             </ListItemLink>
