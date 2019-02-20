@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import he from 'he'
 
 const boLink = "http://localhost:1337"
 
@@ -30,7 +31,10 @@ const Content = withRouter((props) => (
           <Fragment>
               <Grid item xs={12}>
                 <Paper className={props.classes.paper}>
-                  <Typography component="h2" variant="h2" gutterBottom dangerouslySetInnerHTML={{ __html: post.title}} />
+                  <Typography component="h2" variant="h2" gutterBottom>
+                    {he.decode(post.title)}
+                  </Typography>
+
                   <Typography variant="body1" gutterBottom>
                     <article
                     className="entry-content"

@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 import readPostsQuery from '../queries/readPosts'
 import ErrorMessage from './ErrorMessage'
 import Link from "next/link";
+import he from 'he'
 
 // MUI
 import PropTypes from 'prop-types';
@@ -17,7 +18,7 @@ const PostLink = (props) => (
     <div>
       <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
             <ListItemLink>
-                <ListItemText primary={props.titre} />
+                <ListItemText primary={he.decode(props.titre)} />
             </ListItemLink>
       </Link>
     </div>
