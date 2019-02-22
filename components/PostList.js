@@ -46,9 +46,6 @@ function PostList (props) {
 
           return (
               <Grid item xs={12}>
-                  <Typography variant="h4" gutterBottom>
-                    Mon blog
-                  </Typography>
                   <List component="nav">
                   {posts.nodes.map((post) => (
                       <PostLink key={post.id} id={post.id} slug={post.slug} titre={post.title} />
