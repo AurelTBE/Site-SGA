@@ -34,7 +34,6 @@ const Content = withRouter((props) => (
                   <Typography component="h2" variant="h2" gutterBottom>
                     {he.decode(post.title)}
                   </Typography>
-
                   <Typography variant="body1" gutterBottom>
                     <article
                     className="entry-content"

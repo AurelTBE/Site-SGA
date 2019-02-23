@@ -47,8 +47,8 @@ function PostList (props) {
           return (
               <Grid container spacing={24}>
                   {posts.nodes.map((post) => (
-                    <Grid item xs={12} sm={6} md={4}>
-                      <RecipeReviewCard key={post.id} id={post.id} slug={post.slug} titre={post.title} exerpt={post.excerpt} img={post.featuredImage ? post.featuredImage.sourceUrl : null} />
+                    <Grid item xs={12} sm={6} md={4} xl={3}>
+                      <RecipeReviewCard key={post.id} id={post.id} slug={post.slug} titre={post.title} exerpt={post.excerpt} img={post.featuredImage ? post.featuredImage.sourceUrl : null} content={post.content} />
                     </Grid>
                   ))}
               </Grid>
