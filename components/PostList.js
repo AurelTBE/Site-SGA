@@ -2,27 +2,16 @@ import React from 'react';
 import { Query } from 'react-apollo'
 import readPostsQuery from '../queries/readPosts'
 import ErrorMessage from './ErrorMessage'
-import Link from "next/link";
-import he from 'he'
 
 // MUI
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+
 import Grid from '@material-ui/core/Grid';
 
 import RecipeReviewCard from "./Cards"
 
-const PostLink = (props) => (
-    <div>
-      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
-            <ListItemLink>
-                <ListItemText primary={he.decode(props.titre)} />
-            </ListItemLink>
-      </Link>
-    </div>
-  )
+
 
 const styles = theme => ({
     root: {
@@ -32,12 +21,8 @@ const styles = theme => ({
     },
 });
   
-function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-}
-  
 
-function PostList (props) {
+function PostList () {
   return (
       <Query query={readPostsQuery}>
       {({ loading, error, data: { posts }}) => {

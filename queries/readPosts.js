@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export default gql`
     {
-        posts {
+        posts (first: 6) {
             nodes {
               id
               title
