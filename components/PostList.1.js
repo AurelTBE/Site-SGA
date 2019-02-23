@@ -8,11 +8,11 @@ import he from 'he'
 // MUI
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
-
-import RecipeReviewCard from "./Cards"
+import Typography from '@material-ui/core/Typography';
 
 const PostLink = (props) => (
     <div>
@@ -45,12 +45,13 @@ function PostList (props) {
           if (loading) return <div>Loading</div>
 
           return (
-              <Grid container spacing={24}>
+              <Grid item xs={12}>
+                  <List component="nav">
+                  {console.log(posts.nodes)}
                   {posts.nodes.map((post) => (
-                    <Grid item xs={12} sm={6} md={4}>
-                      <RecipeReviewCard key={post.id} id={post.id} slug={post.slug} titre={post.title} exerpt={post.excerpt} img={post.featuredImage ? post.featuredImage.sourceUrl : null} />
-                    </Grid>
+                      <PostLink key={post.id} id={post.id} slug={post.slug} titre={post.title} />
                   ))}
+                  </List>
               </Grid>
           )
       }}

@@ -7,6 +7,10 @@ export default gql`
               id
               title
               slug
+              excerpt
+              featuredImage{
+                sourceUrl
+              }
             }
           }
     }
