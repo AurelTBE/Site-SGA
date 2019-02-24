@@ -37,7 +37,7 @@ const Content = withRouter((props) => (
         return (
           <Fragment>
               <Grid item xs={12}>
-                <img src={post.featuredImage.sourceUrl} alt={he.decode(post.title)} className={props.classes.media} />
+                <img src={post.featuredImage ? post.featuredImage.sourceUrl : "/static/LOGO-CERTIFICATION.jpg"} alt={he.decode(post.title)} className={props.classes.media} />
                 <Paper className={props.classes.paper}>
                   <Typography component="h2" variant="h2" gutterBottom>
                     {he.decode(post.title)}
