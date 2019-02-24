@@ -8,6 +8,9 @@ query ReadPost($id: ID!){
           title
           slug
           content
+          featuredImage{
+            sourceUrl
+          }
         }
     }
 `

@@ -8,7 +8,6 @@ export default gql`
               title
               slug
               excerpt
-              content
               featuredImage{
                 sourceUrl
               }

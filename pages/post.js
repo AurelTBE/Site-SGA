@@ -8,8 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import he from 'he'
 
-const boLink = "http://localhost:1337"
-
 const styles = theme => ({
   root: {
     textAlign: 'center',
@@ -19,6 +17,15 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+  media: {
+    maxWidth: "100%",
+  },
+  content: {
+    textAlign: 'left',
+    '& figure': {
+      textAlign: 'center',
+    },
   },
 });
 
@@ -30,17 +37,19 @@ const Content = withRouter((props) => (
         return (
           <Fragment>
               <Grid item xs={12}>
+                <img src={post.featuredImage.sourceUrl} alt={he.decode(post.title)} className={props.classes.media} />
                 <Paper className={props.classes.paper}>
                   <Typography component="h2" variant="h2" gutterBottom>
                     {he.decode(post.title)}
                   </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    <article
-                    className="entry-content"
+                  <Typography 
+                    variant="body1"
+                    component="div" 
+                    gutterBottom
+                    className={props.classes.content}
                     dangerouslySetInnerHTML={ {
                       __html: post.content
                     } } />
-                  </Typography>
                 </Paper>
             </Grid>
           </Fragment>

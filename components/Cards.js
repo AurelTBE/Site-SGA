@@ -75,12 +75,11 @@ class RecipeReviewCard extends React.Component {
             title={he.decode(titre)}
           />
           <CardContent>
-            <Typography component="p">
-            <article
-                      className="entry-content"
-                      dangerouslySetInnerHTML={ {
-                        __html: exerpt
-                      } } />
+            <Typography 
+              component="div" 
+              dangerouslySetInnerHTML={ {
+                __html: exerpt
+                } }>
             </Typography>
           </CardContent>
         </Card>
