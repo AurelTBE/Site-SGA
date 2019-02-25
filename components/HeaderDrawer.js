@@ -19,6 +19,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Link from 'next/link'
 
+// Query
+import { Query } from 'react-apollo'
+import readMenuQuery from '../queries/readMenu'
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -64,14 +68,22 @@ class Header extends React.Component {
         >
           <img src="/static/logo-sga.svg" alt="Saint Georges d'Argenteuil" className={classes.logo} />
         </Grid>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <Query query={readMenuQuery}>
+          {({ loading, error, data: { menu }}) => {
+              if (error) return <ErrorMessage message='Error loading posts.' />
+              if (loading) return <div>Loading</div>
+
+              return (
+                <List>
+                      {menu.menuItems.nodes.map((menuItem) => (
+                        <ListItem button key={menuItem.id}>
+                          <ListItemText id={menuItem.id} primary={menuItem.label} />
+                        </ListItem>
+                      ))}
+                </List>
+              )
+          }}
+        </Query>
         <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
