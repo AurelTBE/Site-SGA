@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo'
-import readPostsQuery from '../queries/readPosts'
+import readResultsQuery from '../queries/readResults'
 import ErrorMessage from './ErrorMessage'
 import Link from "next/link";
 import he from 'he'
@@ -14,9 +14,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-const PostLink = (props) => (
+const ResultLink = (props) => (
     <div>
-      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
+      <Link as={`/resultats/${props.id}`} href={`/resultat?id=${props.id}`}>
             <ListItemLink>
                 <ListItemText primary={he.decode(props.titre)} />
             </ListItemLink>
@@ -37,19 +37,18 @@ function ListItemLink(props) {
 }
   
 
-function PostList (props) {
+function Resultats (props) {
   return (
-      <Query query={readPostsQuery}>
-      {({ loading, error, data: { posts }}) => {
+      <Query query={readResultsQuery}>
+      {({ loading, error, data: { category }}) => {
           if (error) return <ErrorMessage message='Error loading posts.' />
           if (loading) return <div>Loading</div>
 
           return (
               <Grid item xs={12}>
                   <List component="nav">
-                  {console.log(posts.nodes)}
-                  {posts.nodes.map((post) => (
-                      <PostLink key={post.id} id={post.id} slug={post.slug} titre={post.title} />
+                  {category.posts.nodes.map((resultat) => (
+                      <ResultLink key={resultat.id} id={resultat.id} titre={resultat.title} />
                   ))}
                   </List>
               </Grid>
@@ -59,7 +58,7 @@ function PostList (props) {
   )
 }
 
-PostList.propTypes = {
+Resultats.propTypes = {
     classes: PropTypes.object.isRequired,
   };
-export default withStyles(styles)(PostList);
+export default withStyles(styles)(Resultats);

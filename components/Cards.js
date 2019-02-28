@@ -50,7 +50,7 @@ class RecipeReviewCard extends React.Component {
     }
 
     return (
-      <Link as={`/p/${id}`} href={`/post?id=${id}`}>
+      <Link as={`/actus/${id}`} href={`/actu?id=${id}`}>
         <Card className={classes.card}>
           <ListItemLink>
             <CardHeader

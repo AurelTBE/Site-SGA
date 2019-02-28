@@ -18,7 +18,8 @@ import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { faImages } from '@fortawesome/free-regular-svg-icons'
 
 // Components
-import PostList from '../components/PostList'
+import Actus from './Actus'
+import Resultats from './Resultats'
 
 function TabContainer({ children, dir }) {
   return (
@@ -83,11 +84,13 @@ class FullWidthTabs extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <PostList />
+            <Actus />
           </TabContainer>
           <TabContainer dir={theme.direction}>Item Two</TabContainer>
           <TabContainer dir={theme.direction}>Item Three</TabContainer>
-          <TabContainer dir={theme.direction}>Item Four</TabContainer>
+          <TabContainer dir={theme.direction}>
+            <Resultats />
+          </TabContainer>
         </SwipeableViews>
       </div>
     );

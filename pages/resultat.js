@@ -59,7 +59,7 @@ const Content = withRouter((props) => (
   </PostQuery>
 ))
 
-function Page(props) {
+function Resultat(props) {
   const { classes } = props;
     
   return (
@@ -68,8 +68,8 @@ function Page(props) {
 }
 
 
-Page.propTypes = {
+Resultat.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Page)
+export default withStyles(styles)(Resultat)
