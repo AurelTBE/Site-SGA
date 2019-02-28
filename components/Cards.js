@@ -7,14 +7,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
 import ListItem from '@material-ui/core/ListItem';
 import Link from "next/link";
 import he from 'he'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDragon } from '@fortawesome/free-solid-svg-icons'
+
 const styles = theme => ({
   card: {
     maxWidth: 400,
+    height: "100%",
     cursor: 'pointer',
   },
   media: {
@@ -24,18 +27,8 @@ const styles = theme => ({
   actions: {
     display: 'flex',
   },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: theme.palette.primary.main,
   },
   logo: {
       maxWidth: "100%"
@@ -50,7 +43,7 @@ class RecipeReviewCard extends React.Component {
   };
 
   render() {
-    const { classes, id, titre, exerpt, img, content } = this.props;
+    const { classes, id, titre, exerpt, img } = this.props;
 
     function ListItemLink(props) {
       return <ListItem button component="a" {...props} />;
@@ -63,7 +56,7 @@ class RecipeReviewCard extends React.Component {
             <CardHeader
               avatar={
                 <Avatar aria-label="Recipe" className={classes.avatar}>
-                  <img src="/static/favicon-sga.svg" alt="Saint Georges d'Argenteuil" className={classes.logo} />
+                  <FontAwesomeIcon icon={faDragon} />
                 </Avatar>
               }
               title={he.decode(titre)}

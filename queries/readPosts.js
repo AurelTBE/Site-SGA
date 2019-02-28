@@ -6,7 +6,6 @@ export default gql`
             nodes {
               id
               title
-              slug
               excerpt
               featuredImage{
                 sourceUrl

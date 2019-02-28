@@ -7,6 +7,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
+// Breapkpoints
+import withWidth from '@material-ui/core/withWidth';
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDragon } from '@fortawesome/free-solid-svg-icons'
+import { faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
+import { faImages } from '@fortawesome/free-regular-svg-icons'
+
 // Components
 import PostList from '../components/PostList'
 
@@ -43,7 +53,12 @@ class FullWidthTabs extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, width } = this.props;
+    // Check breakpoint
+    const isSmallScreen = /xs|sm/.test(width);
+    const labelProps = {
+      size: isSmallScreen ? "small" : "large"
+    };
 
     return (
       <div className={classes.root}>
@@ -56,10 +71,10 @@ class FullWidthTabs extends React.Component {
             variant="fullWidth"
             centered
           >
-            <Tab label="Actualités" />
-            <Tab label="Résultats" />
-            <Tab label="Agenda" />
-            <Tab label="Médiathèque" />
+            <Tab {...labelProps} label={labelProps.size==="large" ? "Actualités" : <FontAwesomeIcon icon={faDragon} />} />
+            <Tab {...labelProps} label={labelProps.size==="large" ? "Résultats" : <FontAwesomeIcon icon={faTrophy} />} />
+            <Tab {...labelProps} label={labelProps.size==="large" ? "Agenda" : <FontAwesomeIcon icon={faCalendarAlt} />} />
+            <Tab {...labelProps} label={labelProps.size==="large" ? "Médiathèque" : <FontAwesomeIcon icon={faImages} />} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -82,6 +97,7 @@ class FullWidthTabs extends React.Component {
 FullWidthTabs.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  width: PropTypes.string.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(FullWidthTabs);
+export default withWidth() (withStyles(styles, { withTheme: true })(FullWidthTabs));
