@@ -72,9 +72,9 @@ class FullWidthTabs extends React.Component {
             centered
           >
             <Tab {...labelProps} label={labelProps.size==="large" ? "Actualités" : <FontAwesomeIcon icon={faDragon} />} />
-            <Tab {...labelProps} label={labelProps.size==="large" ? "Résultats" : <FontAwesomeIcon icon={faTrophy} />} />
             <Tab {...labelProps} label={labelProps.size==="large" ? "Agenda" : <FontAwesomeIcon icon={faCalendarAlt} />} />
             <Tab {...labelProps} label={labelProps.size==="large" ? "Médiathèque" : <FontAwesomeIcon icon={faImages} />} />
+            <Tab {...labelProps} label={labelProps.size==="large" ? "Résultats" : <FontAwesomeIcon icon={faTrophy} />} />
           </Tabs>
         </AppBar>
         <SwipeableViews
