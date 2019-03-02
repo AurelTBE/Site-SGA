@@ -40,14 +40,14 @@ function ListItemLink(props) {
 function Resultats (props) {
   return (
       <Query query={readResultsQuery}>
-      {({ loading, error, data: { category }}) => {
+      {({ loading, error, data: { results }}) => {
           if (error) return <ErrorMessage message='Error loading posts.' />
           if (loading) return <div>Loading</div>
 
           return (
               <Grid item xs={12}>
                   <List component="nav">
-                  {category.posts.nodes.map((resultat) => (
+                  {results.nodes.map((resultat) => (
                       <ResultLink key={resultat.id} id={resultat.id} titre={resultat.title} />
                   ))}
                   </List>

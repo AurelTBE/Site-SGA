@@ -1,7 +1,7 @@
 import {PureComponent, Fragment} from 'react'
 import PropTypes from 'prop-types';
 import {withRouter} from 'next/router'
-import PostQuery from '../queries/readPost'
+import ResultQuery from '../queries/readResult'
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -30,17 +30,17 @@ const styles = theme => ({
 });
 
 const Content = withRouter((props) => (
-  <PostQuery id={props.router.query.id}>
-    {({ loading, error, post }) => {
+  <ResultQuery id={props.router.query.id}>
+    {({ loading, error, result }) => {
       if (error) return <ErrorMessage message='Error loading posts.' />
       if (loading) return <div>Loading</div>
         return (
           <Fragment>
               <Grid item xs={12}>
-                <img src={post.featuredImage ? post.featuredImage.sourceUrl : "/static/LOGO-CERTIFICATION.jpg"} alt={he.decode(post.title)} className={props.classes.media} />
+                <img src={result.featuredImage ? result.featuredImage.sourceUrl : "/static/LOGO-CERTIFICATION.jpg"} alt={he.decode(result.title)} className={props.classes.media} />
                 <Paper className={props.classes.paper}>
                   <Typography component="h2" variant="h2" gutterBottom>
-                    {he.decode(post.title)}
+                    {he.decode(result.title)}
                   </Typography>
                   <Typography 
                     variant="body1"
@@ -48,7 +48,7 @@ const Content = withRouter((props) => (
                     gutterBottom
                     className={props.classes.content}
                     dangerouslySetInnerHTML={ {
-                      __html: post.content
+                      __html: result.content
                     } } />
                 </Paper>
             </Grid>
@@ -56,7 +56,7 @@ const Content = withRouter((props) => (
         )
       }
     }
-  </PostQuery>
+  </ResultQuery>
 ))
 
 function Resultat(props) {
