@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import he from 'he'
+import HtmlTableToJson from 'html-table-to-json'
 
 const styles = theme => ({
   root: {
@@ -50,6 +51,7 @@ const Content = withRouter((props) => (
                     dangerouslySetInnerHTML={ {
                       __html: result.content
                     } } />
+                    {console.log(new HtmlTableToJson(result.content)._results)}
                 </Paper>
             </Grid>
           </Fragment>
