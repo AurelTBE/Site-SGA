@@ -1,4 +1,4 @@
-import {PureComponent, Fragment} from 'react'
+import {Fragment} from 'react'
 import PropTypes from 'prop-types';
 import {withRouter} from 'next/router'
 import ResultQuery from '../queries/readResult'
@@ -7,7 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import he from 'he'
-import HtmlTableToJson from 'html-table-to-json'
+
+// Components
+import Tableaux from '../components/Tableaux'
 
 const styles = theme => ({
   root: {
@@ -51,7 +53,7 @@ const Content = withRouter((props) => (
                     dangerouslySetInnerHTML={ {
                       __html: result.content
                     } } />
-                    {console.log(new HtmlTableToJson(result.content)._results)}
+                    <Tableaux data={result.content} />
                 </Paper>
             </Grid>
           </Fragment>
