@@ -39,22 +39,8 @@ const Content = withRouter((props) => (
       if (loading) return <div>Loading</div>
         return (
           <Fragment>
-              <Grid item xs={12}>
-                <img src={result.featuredImage ? result.featuredImage.sourceUrl : "/static/LOGO-CERTIFICATION.jpg"} alt={he.decode(result.title)} className={props.classes.media} />
-                <Paper className={props.classes.paper}>
-                  <Typography component="h2" variant="h2" gutterBottom>
-                    {he.decode(result.title)}
-                  </Typography>
-                  <Typography 
-                    variant="body1"
-                    component="div" 
-                    gutterBottom
-                    className={props.classes.content}
-                    dangerouslySetInnerHTML={ {
-                      __html: result.content
-                    } } />
-                    <Tableaux data={result.content} />
-                </Paper>
+            <Grid item xs={12}>
+              <Tableaux data={result.content} title={he.decode(result.title)} />
             </Grid>
           </Fragment>
         )

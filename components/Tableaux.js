@@ -1,19 +1,41 @@
 import React, { Component } from 'react'
 import HtmlTableToJson from 'html-table-to-json'
+import MUIDataTable from "mui-datatables";
+
 
 export default class Tableau extends Component {
     state = {data: null}
 
     componentDidMount() {
-        const data = new HtmlTableToJson(this.props.data)
-        this.setState({data: data.results[0]})
+        const rawData = new HtmlTableToJson(this.props.data)
+        const refinedData = rawData.results[0].map(row => Object.values(row))
+        const header = refinedData.shift()
+        this.setState({header: header, data: refinedData})
     }
 
     render() {
-        return (
-        <div>
-            {console.log(this.state.data)}
-        </div>
-        )
+        if (this.state.data === null) {
+            return <div>Chargement des résultats</div>
+          } else {
+            const columns = this.state.header;
+
+            const data = this.state.data;
+        
+            const options = {
+              filterType: "dropdown",
+              responsive: "scroll"
+            };
+    
+            return (
+            <div>
+                <MUIDataTable
+                    title={this.props.title}
+                    data={data}
+                    columns={columns}
+                    options={options}
+                />
+            </div>
+            )
+        }
     }
 }
