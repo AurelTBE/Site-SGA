@@ -17,14 +17,18 @@ export default class Tableau extends Component {
         if (this.state.data === null) {
             return <div>Chargement des résultats</div>
           } else {
-            const columns = this.state.header;
+            const columns = this.state.header
 
-            const data = this.state.data;
+            const data = this.state.data
         
             const options = {
-              filterType: "dropdown",
-              responsive: "scroll"
-            };
+                selectableRows: false,
+                pagination: false,
+                search: false,
+                print: false,
+                filter: false,
+                responsive: "scroll"
+            }
     
             return (
             <div>
