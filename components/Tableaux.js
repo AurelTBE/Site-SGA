@@ -54,8 +54,17 @@ class Tableau extends Component {
                     <Table className={classes.table}>
                         <TableHead>
                         <TableRow>
+                            <TableCell rowSpan={2}>{header[0]}</TableCell>
+                            <TableCell colSpan={4} align="center">{header[1]}</TableCell>
+                            <TableCell colSpan={4} align="center">{header[2]}</TableCell>
+                            <TableCell colSpan={4} align="center">{header[3]}</TableCell>
+                            <TableCell colSpan={4} align="center">{header[4]}</TableCell>
+                            <TableCell rowSpan={2}>{header[5]}</TableCell>
+                            <TableCell rowSpan={2}>{header[6]}</TableCell>
+                        </TableRow>
+                        <TableRow>
                             {
-                                header.map(cell => (
+                                subHeader.map(cell => (
                                     <TableCell key={cell}>{cell}</TableCell>
                                 ))
                             }
@@ -64,26 +73,11 @@ class Tableau extends Component {
                         <TableBody>
                         {data.map(row => (
                             <TableRow key={row}>
-                            <TableCell>xx</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                            <TableCell align="right">xx</TableCell>
+                                {row.map(cell => (
+                                    <TableCell>{cell}</TableCell>
+                                ))}
                             </TableRow>
                         ))}
-                        <TableRow>
-                            <TableCell rowSpan={3} />
-                            <TableCell colSpan={2}>Subtotal</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Tax</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell colSpan={2}>Total</TableCell>
-                            <TableCell align="right">xx</TableCell>
-                        </TableRow>
                         </TableBody>
                     </Table>
                 </Paper>
