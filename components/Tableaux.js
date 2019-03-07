@@ -74,7 +74,7 @@ class Tableau extends Component {
                         {data.map(row => (
                             <TableRow key={row}>
                                 {row.map(cell => (
-                                    <TableCell>{cell}</TableCell>
+                                    <TableCell key={cell}>{cell}</TableCell>
                                 ))}
                             </TableRow>
                         ))}
