@@ -24,7 +24,8 @@
     "react-apollo": "^2.4.0",
     "react-dom": "latest",
     "react-jss": "^8.1.0",
-    "react-swipeable-views": "^0.13.1"
+    "react-swipeable-views": "^0.13.1",
+    "react-uid": "^2.2.0"
   },
   "scripts": {
     "dev": "node server.js",

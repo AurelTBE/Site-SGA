@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import HtmlTableToJson from 'html-table-to-json'
-import MUIDataTable from "mui-datatables";
-
+import {uid} from 'react-uid';
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -64,17 +63,17 @@ class Tableau extends Component {
                         </TableRow>
                         <TableRow>
                             {
-                                subHeader.map(cell => (
-                                    <TableCell key={cell}>{cell}</TableCell>
+                                subHeader.map((cell, index) => (
+                                    <TableCell key={uid(cell, index)}>{cell}</TableCell>
                                 ))
                             }
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                        {data.map(row => (
-                            <TableRow key={row}>
-                                {row.map(cell => (
-                                    <TableCell key={cell}>{cell}</TableCell>
+                        {data.map((row, index) => (
+                            <TableRow key={uid(row, index)}>
+                                {row.map((cell, index) => (
+                                    <TableCell key={uid(cell, index)}>{cell}</TableCell>
                                 ))}
                             </TableRow>
                         ))}
