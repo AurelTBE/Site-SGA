@@ -6,7 +6,9 @@ export default gql`
         nodes{
           id
           title
-          content
+          featuredImage{
+            sourceUrl
+          }
         }
       }
     }
