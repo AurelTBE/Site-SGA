@@ -33,7 +33,7 @@ function Resultats () {
               <Grid container spacing={24}>
                   {results.nodes.map((resultat) => (
                     <Grid item xs={12} sm={6} md={4} xl={3} key={resultat.id}>
-                      <ResultCard id={resultat.id} titre={resultat.title} exerpt={resultat.excerpt} img={resultat.featuredImage ? resultat.featuredImage.sourceUrl : null} content={resultat.content} />
+                      <ResultCard id={resultat.id} titre={resultat.title} img={resultat.featuredImage ? resultat.featuredImage.sourceUrl : null} />
                     </Grid>
                   ))}
               </Grid>
