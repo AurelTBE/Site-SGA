@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 
-import RecipeReviewCard from "./Cards"
+import ActuCard from "./CardActu"
 
 
 
@@ -33,7 +33,7 @@ function Actus () {
               <Grid container spacing={24}>
                   {category.posts.nodes.map((post) => (
                     <Grid item xs={12} sm={6} md={4} xl={3} key={post.id}>
-                      <RecipeReviewCard id={post.id} titre={post.title} exerpt={post.excerpt} img={post.featuredImage ? post.featuredImage.sourceUrl : null} content={post.content} />
+                      <ActuCard id={post.id} titre={post.title} exerpt={post.excerpt} img={post.featuredImage ? post.featuredImage.sourceUrl : null} content={post.content} />
                     </Grid>
                   ))}
               </Grid>

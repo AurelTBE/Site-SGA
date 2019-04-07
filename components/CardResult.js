@@ -12,7 +12,7 @@ import Link from "next/link";
 import he from 'he'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDragon } from '@fortawesome/free-solid-svg-icons'
+import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 
 const styles = theme => ({
   card: {
@@ -35,7 +35,7 @@ const styles = theme => ({
   }
 });
 
-class RecipeReviewCard extends React.Component {
+class ResultCard extends React.Component {
   state = { expanded: false };
 
   handleExpandClick = () => {
@@ -50,13 +50,13 @@ class RecipeReviewCard extends React.Component {
     }
 
     return (
-      <Link as={`/actus/${id}`} href={`/actu?id=${id}`}>
+      <Link as={`/resultats/${id}`} href={`/resultat?id=${id}`}>
         <Card className={classes.card}>
           <ListItemLink>
             <CardHeader
               avatar={
                 <Avatar aria-label="Recipe" className={classes.avatar}>
-                  <FontAwesomeIcon icon={faDragon} />
+                  <FontAwesomeIcon icon={faTrophy} />
                 </Avatar>
               }
               title={he.decode(titre)}
@@ -81,8 +81,8 @@ class RecipeReviewCard extends React.Component {
   }
 }
 
-RecipeReviewCard.propTypes = {
+ResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RecipeReviewCard);
+export default withStyles(styles)(ResultCard);

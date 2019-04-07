@@ -2,16 +2,27 @@ import React from 'react';
 import { Query } from 'react-apollo'
 import readResultsQuery from '../queries/readResults'
 import ErrorMessage from './ErrorMessage'
+import Link from "next/link";
+import he from 'he'
 
 // MUI
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-import ResultCard from "./CardResult"
-
-
+const ResultLink = (props) => (
+    <div>
+      <Link as={`/resultats/${props.id}`} href={`/resultat?id=${props.id}`}>
+            <ListItemLink>
+                <ListItemText primary={he.decode(props.titre)} />
+            </ListItemLink>
+      </Link>
+    </div>
+  )
 
 const styles = theme => ({
     root: {
@@ -21,8 +32,12 @@ const styles = theme => ({
     },
 });
   
+function ListItemLink(props) {
+    return <ListItem button component="a" {...props} />;
+}
+  
 
-function Resultats () {
+function Resultats (props) {
   return (
       <Query query={readResultsQuery}>
       {({ loading, error, data: { results }}) => {
@@ -30,12 +45,12 @@ function Resultats () {
           if (loading) return <div>Loading</div>
 
           return (
-              <Grid container spacing={24}>
+              <Grid item xs={12}>
+                  <List component="nav">
                   {results.nodes.map((resultat) => (
-                    <Grid item xs={12} sm={6} md={4} xl={3} key={resultat.id}>
-                      <ResultCard id={resultat.id} titre={resultat.title} exerpt={resultat.excerpt} img={resultat.featuredImage ? resultat.featuredImage.sourceUrl : null} content={resultat.content} />
-                    </Grid>
+                      <ResultLink key={resultat.id} id={resultat.id} titre={resultat.title} />
                   ))}
+                  </List>
               </Grid>
           )
       }}
